@@ -9,6 +9,11 @@
 /* -----------------------------------------------------
    Corpo do site
 ----------------------------------------------------- */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
     font-family: var(--font-base);
     background-color: var(--color-background);
