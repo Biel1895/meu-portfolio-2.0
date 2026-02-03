@@ -1,0 +1,791 @@
+/* =====================================================
+   SECTIONS.CSS
+   -----------------------------------------------------
+   Estilos ESPECÍFICOS de cada seção do site.
+   Aqui ficam: hero, about, services, projects,
+   diferenciais e contato.
+
+   Regras:
+   - Nada de componentes genéricos (isso é components.css)
+   - Pode ter estilos internos (títulos, textos, listas)
+   - Pode referenciar animações, mas sem @keyframes aqui
+===================================================== */
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0 80px;
+    overflow: hidden;
+}
+
+/* Fundo animado (apenas configuração; keyframes em animations.css) */
+.animated-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(var(--color-primary-rgb), 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(var(--color-secondary-rgb), 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(var(--color-primary-rgb), 0.03) 0%, transparent 70%);
+    animation: pulseGlow 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Título principal */
+.hero-title {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+/* Texto com gradiente (usado no hero e em outros destaques) */
+.gradient-text {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    filter: drop-shadow(0 0 20px rgba(var(--color-primary-rgb), 0.3));
+    animation: textGlow 3s ease-in-out infinite;
+}
+
+/* Subtítulo */
+.hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    animation: fadeInUp 1s ease 0.4s both;
+}
+
+/* Área de botões */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 1.2s ease 0.6s both;
+}
+
+/* Indicador de scroll */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+}
+
+.chevron {
+    width: 30px;
+    height: 30px;
+    border-right: 2px solid var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+    transform: rotate(45deg);
+    opacity: 0.7;
+}
+
+/* =====================================================
+   ABOUT SECTION
+===================================================== */
+
+/* A seção precisa funcionar com o grid do Bootstrap.
+   NÃO use display:flex aqui (isso quebra a distribuição). */
+.about-section {
+    position: relative;
+    padding: 100px 0;
+    background: linear-gradient(180deg,
+            var(--color-background) 0%,
+            rgba(20, 20, 31, 0.5) 100%);
+    overflow: hidden;
+    /* garante que os brilhos não vazem */
+}
+
+/* Brilho de fundo da seção */
+.about-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(var(--color-primary-rgb), 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(var(--color-secondary-rgb), 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Conteúdo de texto */
+.about-content {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    /* ✅ evita o bloco de texto “gigante” */
+    margin-left: auto;
+    /* ✅ alinha dentro da col-lg-7 como no print */
+}
+
+/* Label superior da seção */
+.about-label {
+    display: block;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+    /* ✅ um pouco maior e mais “premium” */
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    /* ✅ mais elegante que 2px fixo */
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+/* Título + underline */
+.about-title {
+    font-size: clamp(2rem, 2.6vw, 2.2rem);
+    /* ✅ reduz o exagero do mobile/desktop */
+    line-height: 1.08;
+    /* ✅ mais “headline” */
+    margin-bottom: 1.2rem;
+    /* ✅ menos espaço */
+    color: var(--color-foreground);
+    position: relative;
+    display: inline-block;
+}
+
+.title-underline {
+    position: absolute;
+    bottom: -14px;
+    left: 0;
+    width: 62px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    border-radius: 2px;
+}
+
+/* Parágrafos do about */
+.about-text {
+    font-size: 1.00rem;
+    /* ✅ ligeiro ajuste pra ficar igual ao print */
+    line-height: 1.75;
+    color: rgba(220, 230, 255, 0.75);
+    /* ✅ melhor contraste no dark */
+    margin-bottom: 1.25rem;
+    /* ✅ menos “alto” */
+    transition: all var(--transition-base);
+}
+
+.about-text strong {
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: 700;
+}
+
+.about-text:hover {
+    color: var(--color-foreground);
+}
+
+/* =====================================================
+   SKILLS GRID (mais compacto e alinhado como no print)
+===================================================== */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    /* ✅ 2 colunas fixas no desktop */
+    gap: 1rem;
+    /* ✅ menos espaço */
+    margin-top: 1.6rem;
+    /* ✅ aproxima do texto */
+}
+
+/* Card de skill */
+.skill-card {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.75rem 0.9rem;
+    /* ✅ menor */
+    background: rgba(20, 20, 31, 0.4);
+    border: 1px solid rgba(45, 45, 61, 0.6);
+    border-radius: 14px;
+    /* ✅ mais “soft” */
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.skill-card:hover {
+    background: rgba(20, 20, 31, 0.7);
+    border-color: var(--color-primary);
+    transform: translateX(5px);
+    box-shadow: 0 0 20px rgba(var(--color-primary-rgb), 0.1);
+}
+
+.skill-card:hover .skill-icon {
+    transform: scale(1.08) rotate(5deg);
+    box-shadow: var(--glow-primary);
+}
+
+/* Texto do card */
+.skill-card span {
+    color: var(--color-foreground);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* Ícone do card (pra ficar menor como no print) */
+.skill-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+}
+
+/* =====================================================
+   SERVICES SECTION
+===================================================== */
+.services-section {
+    padding: 100px 0;
+    background: var(--color-background);
+}
+
+/* Label + título + subtítulo (padrão de seção) */
+.section-label {
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--color-foreground);
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Conteúdo interno de service (títulos, listas, etc.) */
+.service-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-foreground);
+    margin-bottom: 1rem;
+}
+
+.service-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+}
+
+/* Lista de features */
+.service-features {
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.service-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    transition: all var(--transition-base);
+}
+
+.service-features li:hover {
+    color: var(--color-foreground);
+    transform: translateX(5px);
+}
+
+.service-features li i.bi {
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+/* Hover do ícone dentro do card (mantendo seu efeito original) */
+.service-card:hover .service-icon {
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 0 20px rgba(var(--color-primary-rgb), 0.2);
+}
+
+.service-card:hover .service-icon-purple {
+    box-shadow: 0 0 20px rgba(var(--color-secondary-rgb), 0.2);
+}
+
+/* CTA custom solution (apenas pseudo e textos) */
+.custom-solution-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(var(--color-primary-rgb), 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.cta-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-foreground);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-description {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* =====================================================
+   PROJECTS SECTION
+===================================================== */
+.projects-section {
+    padding: 100px 0;
+    background: var(--color-background);
+}
+
+/* Wrapper do ícone/ilustração do projeto */
+.project-icon-wrapper {
+    position: relative;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Variações de fundo por categoria (mantém seu visual original) */
+.project-card-teal .project-icon-wrapper {
+    background: linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.15), rgba(6, 78, 59, 0.3));
+}
+
+.project-card-purple .project-icon-wrapper {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(88, 28, 135, 0.3));
+}
+
+.project-card-blue .project-icon-wrapper {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(30, 64, 175, 0.3));
+}
+
+.project-card-dark-blue .project-icon-wrapper {
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.3), rgba(17, 24, 39, 0.5));
+}
+
+.project-card-purple-dark .project-icon-wrapper {
+    background: linear-gradient(135deg, rgba(109, 40, 217, 0.2), rgba(67, 20, 97, 0.4));
+}
+
+.project-card-teal-dark .project-icon-wrapper {
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.15), rgba(4, 78, 74, 0.3));
+}
+
+/* Ícone do projeto */
+.project-icon {
+    color: var(--color-primary);
+    font-size: 5rem;
+    opacity: 0.8;
+    transition: all 0.4s ease;
+}
+
+.project-card:hover .project-icon {
+    opacity: 1;
+    transform: scale(1.1) rotate(-5deg);
+}
+
+/* Corpo do card de projeto */
+.project-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-category {
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+}
+
+.project-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-foreground);
+    margin-bottom: 0.7rem;
+    line-height: 1.3;
+}
+
+.project-description {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: 0.7rem;
+    flex-grow: 1;
+}
+
+/* Container de tags */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+}
+
+/* =====================================================
+   DIFERENCIAIS SECTION
+===================================================== */
+.diferenciais-section {
+    padding: 100px 0;
+    background: var(--color-background);
+}
+
+.diferenciais-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(var(--color-primary-rgb), 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(var(--color-secondary-rgb), 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.diferenciais-left {
+    position: relative;
+    z-index: 1;
+    max-width: 645px;
+}
+
+.diferenciais-label {
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.diferenciais-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--color-foreground);
+}
+
+.diferenciais-title .text-cyan {
+    color: var(--color-primary);
+}
+
+.diferenciais-title .text-purple {
+    background: linear-gradient(135deg, #6366f1, var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.diferenciais-subtitle {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+}
+
+/* Testimonial */
+.testimonial-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.testimonial-content {
+    flex: 1;
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-foreground);
+    font-style: italic;
+    margin-bottom: 1.25rem;
+}
+
+.testimonial-author {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-foreground);
+    margin-bottom: 0.25rem;
+}
+
+.testimonial-role {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+/* Grid de diferenciais */
+.diferenciais-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px;
+    align-items: stretch;
+}
+
+.diferencial-card {
+    padding: 17px;
+    min-height: 140px;
+    /* força ficar “baixo” */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 3px;
+}
+
+.diferencial-card:hover .diferencial-icon {
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 0 25px rgba(var(--color-primary-rgb), 0.4);
+}
+
+.diferencial-icon svg {
+    color: var(--color-background);
+    width: 16px;
+    height: 16px;
+}
+
+.diferencial-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-foreground);
+    margin-bottom: 0.4rem;
+}
+
+.diferencial-description {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.diferenciais-cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* =====================================================
+   CONTATO SECTION
+===================================================== */
+.contato-section {
+    padding: 5.5rem 0 2rem 0;
+    background: var(--color-background);
+}
+
+/* Título e subtítulo do contato */
+.contato-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--color-foreground);
+}
+
+.text-gradient-cyan {
+    background: linear-gradient(135deg, var(--color-primary), #00f0ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.contato-subtitle {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    max-width: 800px;
+    margin: 0 auto 4rem;
+}
+
+/* Wrapper do ícone no card de contato (com variações de cor) */
+.contact-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+    flex-shrink: 0;
+    transition: all var(--transition-base);
+}
+
+.whatsapp-icon {
+    background: linear-gradient(135deg, #25d366, #128c7e);
+}
+
+.instagram-icon {
+    background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
+}
+
+.email-icon {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.contact-icon-wrapper svg {
+    color: #ffffff;
+}
+
+.contact-card:hover .contact-icon-wrapper {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+/* Conteúdo textual do contato */
+.contact-info {
+    flex: 1;
+}
+
+.contact-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-foreground);
+    margin-bottom: 0;
+}
+
+.contact-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-foreground);
+    margin-bottom: 0.25rem;
+}
+
+.contact-description {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+/* Meta infos do contato */
+.contact-meta {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+}
+
+.contact-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+.contact-meta-item svg {
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+/* Efeitos do CTA card do contato */
+.contato-cta-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(var(--color-primary-rgb), 0.08) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.cta-card-title {
+    font-size: clamp(1.75rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: var(--color-foreground);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+    line-height: 1.2;
+}
+
+.cta-card-text {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Tempo de resposta */
+.cta-response-time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    position: relative;
+    z-index: 1;
+}
+
+.cta-response-time svg {
+    color: var(--color-foreground);
+    flex-shrink: 0;
+}
+
+/* Badges do CTA */
+.cta-badges {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(45, 45, 61, 0.6);
+    position: relative;
+    z-index: 1;
+}
+
+/* =====================================================
+   PLACEHOLDER SECTION (se existir no seu HTML)
+===================================================== */
+.section-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0;
+    background: linear-gradient(180deg, var(--color-background) 0%, rgba(20, 20, 31, 0.5) 100%);
+}
+
+.section-placeholder h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-placeholder p {
+    color: var(--color-text-muted);
+    font-size: 1.2rem;
+}

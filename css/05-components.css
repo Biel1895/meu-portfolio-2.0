@@ -1,0 +1,723 @@
+/* =====================================================
+   COMPONENTS.CSS
+   -----------------------------------------------------
+   Tudo que é REUTILIZÁVEL:
+   - botões
+   - cards (padrão glass)
+   - badges/tags
+   - ícones wrappers
+   - links de ação
+   - stats/peças repetidas
+===================================================== */
+
+/* =====================================================
+   BOTÕES (padrões e variações)
+===================================================== */
+
+/* Botão CTA do navbar */
+.btn-cta {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: var(--color-background);
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: var(--radius-pill);
+    border: none;
+    transition: all var(--transition-base);
+    box-shadow: var(--glow-primary);
+}
+
+.btn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--glow-primary-strong);
+    color: var(--color-background);
+}
+
+/* Botão gradiente (hero e CTAs) */
+.btn-gradient {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: var(--color-background);
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    border-radius: var(--radius-pill);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all var(--transition-base);
+    box-shadow: var(--glow-primary);
+    font-size: 1.1rem;
+}
+
+.btn-gradient:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--glow-primary-strong);
+    color: var(--color-background);
+}
+
+/* Botão “outline” */
+.btn-outline {
+    background: transparent;
+    color: var(--color-foreground);
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    border-radius: var(--radius-pill);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    display: inline-flex;
+    align-items: center;
+    transition: all var(--transition-base);
+    font-size: 1.1rem;
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+/* Outline maior (usado em CTAs de seção) */
+.btn-outline-large {
+    background: transparent;
+    color: var(--color-foreground);
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    border-radius: var(--radius-pill);
+    border: 2px solid rgba(var(--color-primary-rgb), 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all var(--transition-base);
+    font-size: 1.05rem;
+}
+
+.btn-outline-large:hover {
+    background: rgba(var(--color-primary-rgb), 0.1);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(var(--color-primary-rgb), 0.2);
+}
+
+/* Botão “conversar” (diferenciais) */
+.btn-conversar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, var(--color-primary), #6366f1);
+    color: var(--color-background);
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 1.25rem 3rem;
+    border-radius: var(--radius-pill);
+    border: none;
+    transition: all var(--transition-base);
+    box-shadow: 0 0 30px rgba(var(--color-primary-rgb), 0.4);
+}
+
+.btn-conversar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 40px rgba(var(--color-primary-rgb), 0.6);
+    color: var(--color-background);
+}
+
+.btn-conversar svg {
+    transition: transform var(--transition-base);
+}
+
+.btn-conversar:hover svg {
+    transform: translateX(5px);
+}
+
+/* Botão WhatsApp CTA (contato) */
+.btn-whatsapp-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.1rem 1rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: var(--color-background);
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: var(--radius-pill);
+    border: none;
+    transition: all var(--transition-base);
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 30px rgba(var(--color-primary-rgb), 0.4);
+}
+
+.btn-whatsapp-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 50px rgba(var(--color-primary-rgb), 0.6);
+    color: var(--color-background);
+}
+
+.btn-whatsapp-cta svg {
+    flex-shrink: 0;
+}
+
+/* =====================================================
+   BADGES / TAGS (peças pequenas repetidas)
+===================================================== */
+
+/* Badge/tag (hero) */
+.badge-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.6rem;
+    background: rgba(20, 20, 31, 0.6);
+    border: 2px solid rgba(var(--color-primary-rgb), 0.3);
+    border-radius: var(--radius-pill);
+    color: var(--color-primary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+/* =====================================================
+   PROFILE CARD
+===================================================== */
+
+.profile-scene {
+    position: relative;
+    width: 530px;
+    height: 520px;
+    display: grid;
+    place-items: center;
+}
+
+/* Molduras no fundo */
+.scene-frame {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 22px;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.frame-cyan {
+    top: 28px;
+    left: 32px;
+    border: 2px solid rgba(0, 217, 255, 0.45);
+    box-shadow: 0 0 0 1px rgba(0, 217, 255, 0.08);
+}
+
+.frame-purple {
+    bottom: 22px;
+    right: 34px;
+    border: 2px solid rgba(168, 85, 247, 0.45);
+    box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.08);
+}
+
+/* Card principal */
+.profile-card {
+    position: relative;
+    width: 380px;
+    height: 390px;
+
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(10, 12, 18, 0.55);
+    backdrop-filter: blur(16px);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+/* brilho sutil interno (bem discreto) */
+.profile-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 35%, rgba(0, 217, 255, 0.06), transparent 55%);
+    pointer-events: none;
+}
+
+/* Badges */
+.profile-badge {
+    position: absolute;
+    padding: 12px 22px;
+    border-radius: 999px;
+
+    background: rgba(10, 12, 18, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    font-weight: 600;
+    font-size: 14px;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* posições iguais à imagem */
+.profile-badge--top {
+    top: 40px;
+    right: 30px;
+    color: #00d9ff;
+    animation: floatBadge 2.8s ease-in-out infinite;
+}
+
+.profile-badge--bottom {
+    bottom: 40px;
+    left: 30px;
+    color: #a855f7;
+    animation: floatBadge 3.5s ease-in-out infinite;
+}
+
+/* Avatar (círculo com gradiente + glow) */
+.profile-circle {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 26px;
+}
+
+.circle-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00d9ff, #a855f7);
+    filter: blur(22px);
+    opacity: 0.7;
+}
+
+.profile-initials {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+
+    background: linear-gradient(135deg, #00d9ff, #a855f7);
+    box-shadow: 0 0 45px rgba(0, 217, 255, 0.18);
+
+    font-size: 54px;
+    font-weight: 800;
+    color: #0b0f14;
+}
+
+/* Nome com gradiente */
+.profile-name {
+    margin: 0 0 10px;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+
+    background: linear-gradient(135deg, #00d9ff, #a855f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Cargo */
+.profile-role {
+    margin: 0;
+    font-size: 18px;
+    color: rgba(220, 230, 255, 0.65);
+    font-weight: 500;
+}
+
+/* Tags de projetos */
+.project-tag {
+    display: inline-block;
+    padding: 0.1rem 0.4rem;
+    background: var(--color-border);
+    border-radius: 20px;
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    transition: all var(--transition-base);
+}
+
+/* Badge de contato */
+.contact-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(var(--color-primary-rgb), 0.15);
+    border: 1px solid rgba(var(--color-primary-rgb), 0.3);
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Badges do CTA (contato) */
+.cta-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+.cta-badge svg {
+    flex-shrink: 0;
+    color: var(--color-primary);
+}
+
+.cta-badge-purple {
+    color: var(--color-secondary);
+}
+
+.cta-badge-purple svg {
+    color: var(--color-secondary);
+}
+
+/* =====================================================
+   CARDS (Padrão “glass” + variações)
+   -----------------------------------------------------
+   Aqui mora a maior redução de repetição do projeto.
+   Sem mexer no HTML: agrupamos seletores existentes.
+===================================================== */
+
+/* ---------- Base glass card (aplicado por agrupamento) ---------- */
+.profile-card,
+.service-card,
+.project-card,
+.testimonial-card,
+.diferencial-card,
+.contact-card,
+.contato-cta-card,
+.custom-solution-cta {
+    background: rgba(20, 20, 31, 0.6);
+    border: 1px solid rgba(45, 45, 61, 0.6);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all var(--transition-base);
+}
+
+/* Algumas variações do seu layout usam radius maior */
+.profile-card,
+.custom-solution-cta,
+.contato-cta-card {
+    border-radius: 20px;
+}
+
+/* Card com padding padrão (varia em alguns) */
+.service-card,
+.project-card,
+.diferencial-card {
+    padding: 2.5rem;
+}
+
+/* Hover padrão de card (mantém seu visual futurista) */
+.profile-card:hover,
+.service-card:hover,
+.project-card:hover,
+.diferencial-card:hover,
+.testimonial-card:hover,
+.contact-card:hover {
+    background: rgba(20, 20, 31, 0.8);
+    border-color: rgba(var(--color-primary-rgb), 0.4);
+}
+
+/* Particularidades de cards específicos (mantendo sua identidade) */
+
+/* ===========================
+   Arrow hover micro-interaction
+=========================== */
+
+.btn-gradient i.bi {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* move a seta ao hover */
+.btn-gradient:hover i.bi {
+    transform: translateX(6px);
+}
+
+/* Profile card */
+.profile-card {
+    position: relative;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+}
+
+.profile-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(var(--color-primary-rgb), 0.15);
+}
+
+/* Service card */
+.service-card {
+    height: 27rem;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(var(--color-primary-rgb), 0.1);
+}
+
+/* Project card (tem comportamento diferente e estrutura flex) */
+.project-card {
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(var(--color-primary-rgb), 0.15);
+}
+
+.bi-box-arrow-up-right {
+    font-size: 0.78rem;
+}
+
+/* Testimonial card (borda mais “neon”) */
+.testimonial-card {
+    padding: 1.5rem;
+    background: rgba(20, 20, 31, 0.4);
+    border: 1px solid rgba(var(--color-primary-rgb), 0.6);
+}
+
+.testimonial-card:hover {
+    background: rgba(20, 20, 31, 0.6);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 30px rgba(var(--color-primary-rgb), 0.15);
+}
+
+/* Diferencial card */
+.diferencial-card {
+    background: rgba(20, 20, 31, 0.4);
+}
+
+.diferencial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(var(--color-primary-rgb), 0.15);
+}
+
+/* Contact card */
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.75rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+    background: rgba(20, 20, 31, 0.6);
+}
+
+.contact-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 10px 40px rgba(var(--color-primary-rgb), 0.15);
+}
+
+/* Custom solution CTA (borda 2px e efeito) */
+.custom-solution-cta {
+    border: 2px solid var(--color-primary);
+    padding: 3.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: rgba(20, 20, 31, 0.4);
+}
+
+.custom-solution-cta:hover {
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 40px rgba(var(--color-primary-rgb), 0.15);
+}
+
+/* Contato CTA card (borda 2px) */
+.contato-cta-card {
+    border: 1.5px solid var(--color-primary);
+    padding: 1.7rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* =====================================================
+   WRAPPERS DE ÍCONES (repetição grande no projeto)
+===================================================== */
+
+/* Ícone padrão em cards de skill */
+.skill-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-radius: 10px;
+    color: var(--color-background);
+    flex-shrink: 0;
+    transition: all var(--transition-base);
+}
+
+/* Ícones de services */
+.service-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: rgba(var(--color-primary-rgb), 0.15);
+    border-radius: 12px;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    transition: all var(--transition-base);
+}
+
+.service-icon-purple {
+    background: rgba(var(--color-secondary-rgb), 0.15);
+    color: var(--color-secondary);
+}
+
+/* Diferenciais icon */
+.diferencial-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--color-primary), #6366f1);
+    border-radius: 12px;
+    margin-bottom: 0.7rem;
+    transition: all var(--transition-base);
+}
+
+/* Avatar (testimonials) */
+.testimonial-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--color-primary), #6366f1);
+    border-radius: 50%;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-background);
+    flex-shrink: 0;
+}
+
+/* Ícones sociais (footer) */
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: rgba(45, 45, 61, 0.6);
+    border: 1px solid rgba(45, 45, 61, 0.8);
+    border-radius: 10px;
+    color: var(--color-text-muted);
+    transition: all var(--transition-base);
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    background: rgba(var(--color-primary-rgb), 0.15);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    box-shadow: 0 0 20px rgba(var(--color-primary-rgb), 0.2);
+}
+
+/* Link/ícone clicável de contato */
+.contact-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(var(--color-primary-rgb), 0.1);
+    border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+    border-radius: 10px;
+    color: var(--color-primary);
+    transition: all var(--transition-base);
+    flex-shrink: 0;
+}
+
+.contact-link:hover {
+    background: rgba(var(--color-primary-rgb), 0.2);
+    border-color: var(--color-primary);
+    transform: rotate(45deg);
+}
+
+/* =====================================================
+   LINKS DE AÇÃO (services/projects)
+===================================================== */
+
+.service-link,
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all var(--transition-base);
+}
+
+.service-link:hover,
+.project-link:hover {
+    color: var(--color-primary);
+    gap: 0.75rem;
+}
+
+.service-link i.bi,
+.project-link i.bi {
+    transition: transform var(--transition-base);
+}
+
+.service-link:hover i.bi,
+.project-link:hover i.bi {
+    transform: translateX(3px);
+}
+
+/* =====================================================
+   STATS (hero)
+===================================================== */
+
+.stat-item {
+    text-align: center;
+    transition: all var(--transition-base);
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 5vw, 2rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+}
+
+.stat-label {
+    color: var(--color-text-muted);
+    font-size: clamp(0.75rem, 1.5vw, 0.90rem);
+    font-weight: 500;
+}

@@ -1,0 +1,91 @@
+/* =====================================================
+   VARIABLES.CSS
+   -----------------------------------------------------
+   Centraliza TODAS as decisões visuais do projeto.
+   Nada aqui deve estilizar elementos diretamente.
+   Apenas define valores reutilizáveis.
+===================================================== */
+
+/* =====================================================
+   ROOT VARIABLES
+===================================================== */
+:root {
+
+   /* -------------------------------------------------
+     CORES BASE – TEMA ESCURO FUTURISTA
+  ------------------------------------------------- */
+   --color-background: #0a0a0f;
+   --color-foreground: #f8fafc;
+
+   --color-card: #14141f;
+   --color-border: #2d2d3d;
+
+   /* -------------------------------------------------
+     CORES PRIMÁRIAS E SECUNDÁRIAS (IDENTIDADE)
+  ------------------------------------------------- */
+   --color-primary: #00d9ff;
+   --color-primary-rgb: 0, 217, 255;
+
+   --color-secondary: #a855f7;
+   --color-secondary-rgb: 168, 85, 247;
+
+   /* -------------------------------------------------
+     TEXTO
+  ------------------------------------------------- */
+   --color-text-muted: #94a3b8;
+
+   /* -------------------------------------------------
+     TIPOGRAFIA
+  ------------------------------------------------- */
+   --font-base: 'Inter', sans-serif;
+   --font-heading: 'Space Grotesk', sans-serif;
+
+   /* -------------------------------------------------
+     GLOWS E EFEITOS LUMINOSOS
+     Usados em botões, títulos e destaques
+  ------------------------------------------------- */
+   --glow-primary:
+      0 0 20px rgba(var(--color-primary-rgb), 0.4),
+      0 0 40px rgba(var(--color-primary-rgb), 0.2),
+      0 0 60px rgba(var(--color-primary-rgb), 0.1);
+
+   --glow-primary-strong:
+      0 0 30px rgba(var(--color-primary-rgb), 0.6),
+      0 0 60px rgba(var(--color-primary-rgb), 0.4),
+      0 0 90px rgba(var(--color-primary-rgb), 0.2);
+
+   --text-glow:
+      0 0 10px rgba(var(--color-primary-rgb), 0.5),
+      0 0 20px rgba(var(--color-primary-rgb), 0.3);
+
+   /* -------------------------------------------------
+     RAIOS E BORDAS
+  ------------------------------------------------- */
+   --radius-sm: 8px;
+   --radius-md: 12px;
+   --radius-lg: 16px;
+   --radius-pill: 50px;
+
+   /* -------------------------------------------------
+     ESPAÇAMENTOS PADRÃO
+  ------------------------------------------------- */
+   --space-xs: 0.5rem;
+   --space-sm: 1rem;
+   --space-md: 1.5rem;
+   --space-lg: 2.5rem;
+   --space-xl: 4rem;
+
+   /* -------------------------------------------------
+     TRANSIÇÕES
+  ------------------------------------------------- */
+   --transition-fast: 0.2s ease;
+   --transition-base: 0.3s ease;
+   --transition-slow: 0.5s ease;
+
+   /* -------------------------------------------------
+     Z-INDEX PADRÃO
+  ------------------------------------------------- */
+   --z-navbar: 1000;
+   --z-overlay: 900;
+   --z-dropdown: 800;
+}

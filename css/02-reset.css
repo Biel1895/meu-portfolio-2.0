@@ -1,0 +1,96 @@
+/* =====================================================
+   RESET.CSS
+   -----------------------------------------------------
+   Normaliza o comportamento padrão dos navegadores.
+   Não deve conter estilos visuais do projeto.
+===================================================== */
+
+/* -----------------------------------------------------
+   Box Model consistente
+----------------------------------------------------- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* -----------------------------------------------------
+   Documento
+----------------------------------------------------- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* -----------------------------------------------------
+   Corpo do documento
+----------------------------------------------------- */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* -----------------------------------------------------
+   Listas
+----------------------------------------------------- */
+ul,
+ol {
+    list-style: none;
+}
+
+/* -----------------------------------------------------
+   Links
+----------------------------------------------------- */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* -----------------------------------------------------
+   Imagens e mídias
+----------------------------------------------------- */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* -----------------------------------------------------
+   Formulários
+----------------------------------------------------- */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* -----------------------------------------------------
+   Botões
+----------------------------------------------------- */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* -----------------------------------------------------
+   Preferências de movimento (acessibilidade)
+----------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

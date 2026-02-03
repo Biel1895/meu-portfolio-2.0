@@ -1,0 +1,130 @@
+/* =====================================================
+   BASE.CSS
+   -----------------------------------------------------
+   Estilos globais e fundacionais do projeto.
+   Define tipografia, cores base e padrões de leitura.
+   NÃO contém componentes ou seções específicas.
+===================================================== */
+
+/* -----------------------------------------------------
+   Corpo do site
+----------------------------------------------------- */
+body {
+    font-family: var(--font-base);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* -----------------------------------------------------
+   Tipografia base
+----------------------------------------------------- */
+p {
+    margin-bottom: var(--space-sm);
+    font-size: 1rem;
+    color: var(--color-text-muted);
+}
+
+/* -----------------------------------------------------
+   Títulos
+----------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-foreground);
+    line-height: 1.2;
+}
+
+/* Escalas de título (ajuste fino e previsível) */
+h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+/* -----------------------------------------------------
+   Destaques de texto
+----------------------------------------------------- */
+strong {
+    font-weight: 600;
+    color: var(--color-foreground);
+}
+
+/* -----------------------------------------------------
+   Links (comportamento global)
+----------------------------------------------------- */
+a {
+    transition: color var(--transition-base);
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
+/* -----------------------------------------------------
+   Seleção de texto
+----------------------------------------------------- */
+::selection {
+    background-color: rgba(var(--color-primary-rgb), 0.25);
+    color: var(--color-foreground);
+}
+
+/* -----------------------------------------------------
+   Utilidades básicas de texto
+   (poucas e bem pensadas)
+----------------------------------------------------- */
+.text-muted {
+    color: var(--color-text-muted);
+}
+
+.text-primary {
+    color: var(--color-primary);
+}
+
+.text-secondary {
+    color: var(--color-secondary);
+}
+
+/* -----------------------------------------------------
+   Gradientes de texto (uso pontual)
+----------------------------------------------------- */
+.text-gradient {
+    background: linear-gradient(135deg,
+            var(--color-primary),
+            var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* -----------------------------------------------------
+   Acessibilidade
+----------------------------------------------------- */
+:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
+}
